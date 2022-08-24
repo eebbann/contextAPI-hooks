@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-const Login = ({ setuser }) => {
+import {AppContext} from "../App"
+const Login = ( ) => {
+	const {setuser} = useContext(AppContext)
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
 
@@ -11,7 +13,7 @@ const Login = ({ setuser }) => {
 		setuser({ name: name, email: email });
 		navigate("/dashboard");
 	};
-	
+
 	return (
 		<section className="section">
 			<form className="form" onSubmit={handleSubmit}>
